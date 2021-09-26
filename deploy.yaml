@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pywebstate
+spec:
+  selector:
+    matchLabels:
+      app: pywebstate
+  replicas: 1 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: pywebstate
+    spec:
+      containers:
+      - name: pywebstate
+        image: yop038/pywebstate:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8000
