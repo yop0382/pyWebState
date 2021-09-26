@@ -12,7 +12,9 @@ class Pg:
 
     def is_connected(self):
         try:
-            self.conn.isolation_level
+            sql = """ SELECT 1 """
+            cur = self.conn.cursor()
+            cur.execute(sql)
         except:
             self.connect_pg()
 
